@@ -16,5 +16,24 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
+
+    <!-- // lets write react code -->
+
+    <!-- <script>
+      const heading = React.createElement("h1", {}, "Hello World! by React");
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(heading)
+    </script> -->
+
+    <script>
+      const paragraph = React.createElement(
+        "p",
+        {},
+        "Hey I am paragraph rendered by react"
+      );
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(paragraph);
+    </script>
   </body>
 </html>
