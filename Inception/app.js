@@ -9,5 +9,6 @@ const heading = React.createElement(
   },
   "Hey I am paragraph rendered by react"
 );
+console.log(heading)
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
