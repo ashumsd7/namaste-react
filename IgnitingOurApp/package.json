@@ -10,9 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/ashumsd7/namaste-react.git"
   },
-  "keywords": [
-    "aat-react"
-  ],
   "author": "Ashu",
   "license": "ISC",
   "bugs": {
@@ -26,5 +23,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
-  }
+  },
+  "browserslist":[
+    "last two versions"
+  ]
 }
