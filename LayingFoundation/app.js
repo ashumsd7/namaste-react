@@ -9,7 +9,6 @@ const heading = React.createElement(
   "I am laying the foundation"
 );
 
-
 // this s for that
 const jsxHeading = (
   <h1 className="your-class" tabIndex="2">
@@ -18,5 +17,14 @@ const jsxHeading = (
   </h1>
 );
 
+//react functional component
+const HeadingComponent = () => {
+  return (
+    <div className="container">
+      <h1>I am functional component</h1>
+    </div>
+  );
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(jsxHeading);
+root.render(<HeadingComponent />);
