@@ -10,8 +10,13 @@ const heading = React.createElement(
 );
 
 
+// this s for that
+const jsxHeading = (
+  <h1 className="your-class" tabIndex="2">
+    {" "}
+    I AM JSX Heading
+  </h1>
+);
 
-const jsxHeading= <h1> I AM JSX Heading</h1>
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(jsxHeading)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(jsxHeading);
