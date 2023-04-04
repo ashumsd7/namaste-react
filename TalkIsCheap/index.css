@@ -30,5 +30,11 @@
     width: 200px;
     height: 300px;
     border: 1px solid black;
+    padding: 5px;
+
+}
+.res-logo{
+  width: 190px;
+  margin: 5px;
 
 }
