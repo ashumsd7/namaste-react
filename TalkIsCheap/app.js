@@ -30,6 +30,10 @@ const ResCard = () => {
     <div className="res-card" style={styleCard}>
       <img className="res-logo" src="https://t4.ftcdn.net/jpg/02/43/47/01/360_F_243470143_Tb3lMpux13JqExBj38gTDhsHUcDJfEZz.jpg"></img>
       <h3>JalJala foods</h3>
+      <h4>Soya chat, Asian, Chinese</h4>
+      <h4>4.5 Stars</h4>
+      <h4>38 mins</h4>
+
     </div>
   );
 };
@@ -40,6 +44,16 @@ const Body = () => {
       <div className="search">Search</div>
       <div className="res-container">
         {/* res-card */}
+
+        <ResCard />
+
+        <ResCard />
+
+        <ResCard />
+
+        <ResCard />
+
+        <ResCard />
 
         <ResCard />
       </div>
