@@ -17,6 +17,10 @@ const jsxHeading = (
   </h1>
 );
 
+const callMeIWillGiveYouJSX=()=>{
+  return <h1>I AM JSX BY CaLLING</h1>
+}
+
 
 const age=12;
 //react functional component
@@ -25,6 +29,7 @@ const HeadingComponent = () => {
     <div className="container">
       {console.log("Hello")}
       {age}
+      {callMeIWillGiveYouJSX()}
       <h1>I am functional component</h1>
     </div>
   );
