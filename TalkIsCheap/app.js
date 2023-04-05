@@ -553,7 +553,7 @@ const Body = () => {
       <div className="res-container">
         {/* res-card */}
         {resObject.map((res) => {
-          return <ResCard resObject={res} />;
+          return <ResCard key={res.id} resObject={res} />;
         })}
       </div>
     </div>
