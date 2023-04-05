@@ -528,7 +528,8 @@ const styleCard = {
 const ResCard = (props) => {
   console.log(props);
 
-  const {name, cuisines, sla,totalRatings, costForTwoString}= props.resObject
+  const { name, cuisines, sla, totalRatings, costForTwoString } =
+    props.resObject;
 
   return (
     <div className="res-card" style={styleCard}>
@@ -551,9 +552,9 @@ const Body = () => {
       <div className="search">Search</div>
       <div className="res-container">
         {/* res-card */}
-
-        <ResCard resObject={resObject[4]} />
-        {/* <ResCard resName="Paddu food" cusisine="paddu, idly , south food" /> */}
+        {resObject.map((res) => {
+          return <ResCard resObject={res} />;
+        })}
       </div>
     </div>
   );
