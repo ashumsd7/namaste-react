@@ -7,7 +7,7 @@ const styleCard = {
 const ResCard = (props) => {
   console.log(props);
 
-  const { name, cuisines, sla, totalRatings, costForTwoString } =
+  const { name, cuisines, deliveryTime, avgRating, costForTwoString } =
     props.resObject;
 
   return (
@@ -19,8 +19,8 @@ const ResCard = (props) => {
       ></img>
       <h3>{name}</h3>
       <h4>{cuisines?.join(",")}</h4>
-      <h4>{totalRatings} Stars</h4>
-      <h4>{sla?.deliveryTime} mins</h4>
+      <h4>{avgRating} Stars</h4>
+      <h4>{deliveryTime} mins</h4>
       <h4>{costForTwoString} mins</h4>
     </div>
   );
