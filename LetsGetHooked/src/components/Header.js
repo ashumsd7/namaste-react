@@ -1,8 +1,9 @@
+import { LOGO_URL } from "../utils/constant";
 const Header = () => {
     return (
       <div className="header">
         <div className="logo-container">
-          <img className="logo" src="https://i.ibb.co/4VfV1tf/logo.png"></img>
+          <img className="logo" src={LOGO_URL}></img>
         </div>
         <div className="nav-items">
           <ul>

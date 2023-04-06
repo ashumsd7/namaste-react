@@ -1,3 +1,4 @@
+import { CDN_URL } from "../utils/constant.js";
 
 const styleCard = {
   backgroundColor: "#f0f0f0",
@@ -13,7 +14,8 @@ const ResCard = (props) => {
     <div className="res-card" style={styleCard}>
       <img
         className="res-logo"
-        src={`https://res.cloudinary.com/swiggy/image/upload/${props.resObject.cloudinaryImageId}`}
+        src={`${CDN_URL}${props.resObject.cloudinaryImageId}`}
+
       ></img>
       <h3>{name}</h3>
       <h4>{cuisines?.join(",")}</h4>
