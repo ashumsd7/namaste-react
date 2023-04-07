@@ -5,7 +5,7 @@ const styleCard = {
 };
 
 const ResCard = (props) => {
-  console.log(props);
+  // console.log(props);
 
   const { name, cuisines, deliveryTime, avgRating, costForTwoString } =
     props.resObject;

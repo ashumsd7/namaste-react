@@ -1,7 +1,8 @@
 // import resObject from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ResCard from "./ResCard";
 const Body = () => {
+  console.log('Re render')
   let listOfRes2 = [
     {
       name: "Dominos",
@@ -36,13 +37,18 @@ const Body = () => {
   // let search = "KFC";
   const [searchText, setSearchText] = useState("KFC");
 
+
+  useEffect(()=>{
+    console.log('I am use Effect')
+  })
+
   const onChangeInput = (e) => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setSearchText(e.target.value);
   };
 
   const filterData = (searchText, listOfRes) => {
-    console.log('>>>>>>>',listOfRes.filter((rest) => rest.name.includes(searchText)))
+    // console.log('>>>>>>>',listOfRes.filter((rest) => rest.name.includes(searchText)))
     return listOfRes.filter((rest) => rest.name.includes(searchText));
   };
   return (
