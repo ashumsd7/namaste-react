@@ -2,45 +2,24 @@
 import { useState, useEffect } from "react";
 import ResCard from "./ResCard";
 const Body = () => {
-  console.log('Re render')
-  let listOfRes2 = [
-    {
-      name: "Dominos",
-      id: 123443,
-      cuisines: ["Sweets", "Snacks", "Indian"],
-      deliveryTime: "45",
-      avgRating: "2.3",
-      costForTwoString: "200 Rs for two",
-      cloudinaryImageId: "hrqoquclmgqnxrie5bu4",
-    },
-    {
-      name: "KFC",
-      id: 2434243,
-      cuisines: ["Rice", "Poha", "Indian"],
-      deliveryTime: "25",
-      avgRating: "4.6",
-      costForTwoString: "1200 Rs for two",
-      cloudinaryImageId: "hrqoquclmgqnxrie5bu4",
-    },
-    {
-      name: "MCD",
-      id: 243424233,
-      cuisines: ["Rice", "Poha", "Burger"],
-      deliveryTime: "25",
-      avgRating: "4.1",
-      costForTwoString: "350 Rs for two",
-      cloudinaryImageId: "hrqoquclmgqnxrie5bu4",
-    },
-  ];
+  console.log("Re render");
+ 
 
-  const [listOfRes, setListOfRes] = useState(listOfRes2);
+  const [listOfRes, setListOfRes] = useState([]);
   // let search = "KFC";
   const [searchText, setSearchText] = useState("KFC");
 
+  useEffect(() => {
+    // console.log('I am use Effect')
+    getRes();
+  }, []);
 
-  useEffect(()=>{
-    console.log('I am use Effect')
-  })
+  async function getRes() {
+    const data = await fetch(" https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+    const json = await data.json();
+    console.log(json.data?.cards[2]?.data.data.cards);
+    setListOfRes(json.data?.cards[2]?.data.data.cards)
+  }
 
   const onChangeInput = (e) => {
     // console.log(e.target.value);
@@ -82,8 +61,8 @@ const Body = () => {
             onClick={() => {
               // this is a cb fun will be called on click
               //Filter
-              const filteredList = listOfRes.filter((res) => res.avgRating > 4);
-              // console.log('listOfRes',listOfRes)
+              const filteredList = listOfRes.filter((res) => Number(res.data?.avgRating) > 4);
+              console.log('filteredList',filteredList)
               setListOfRes(filteredList);
             }}
           >
@@ -94,7 +73,7 @@ const Body = () => {
       <div className="res-container">
         {/* res-card */}
         {listOfRes.map((res) => {
-          return <ResCard key={res.id} resObject={res} />;
+          return <ResCard key={res.id} resObject={res?.data} />;
         })}
       </div>
     </div>
