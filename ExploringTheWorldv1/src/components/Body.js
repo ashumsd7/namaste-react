@@ -1,9 +1,9 @@
 // import resObject from "../utils/mockData";
 import { useState, useEffect } from "react";
 import ResCard from "./ResCard";
+import Shimmer from "./Shimmer";
 const Body = () => {
   console.log("Re render");
- 
 
   const [listOfRes, setListOfRes] = useState([]);
   // let search = "KFC";
@@ -15,10 +15,12 @@ const Body = () => {
   }, []);
 
   async function getRes() {
-    const data = await fetch(" https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch(
+      " https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+    );
     const json = await data.json();
     console.log(json.data?.cards[2]?.data.data.cards);
-    setListOfRes(json.data?.cards[2]?.data.data.cards)
+    setListOfRes(json.data?.cards[2]?.data.data.cards);
   }
 
   const onChangeInput = (e) => {
@@ -30,53 +32,59 @@ const Body = () => {
     // console.log('>>>>>>>',listOfRes.filter((rest) => rest.name.includes(searchText)))
     return listOfRes.filter((rest) => rest.name.includes(searchText));
   };
-  return (
-    <div className="body">
-      <div style={{ display: "flex", gap: 10, margin: 8 }}>
-        <div className="search-container">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="search"
-            value={searchText}
-            onChange={(e) => {
-              onChangeInput(e);
-            }}
-          ></input>
-          <button
-            className="search-btn"
-            onClick={() => {
-              //write filter function
-              const data = filterData(searchText, listOfRes);
-              setListOfRes(data);
-            }}
-          >
-            {" "}
-            Search
-          </button>
+  return listOfRes.length > 0 ? (
+    <>
+      <div className="body">
+        <div style={{ display: "flex", gap: 10, margin: 8 }}>
+          <div className="search-container">
+            <input
+              type="text"
+              className="search-input"
+              placeholder="search"
+              value={searchText}
+              onChange={(e) => {
+                onChangeInput(e);
+              }}
+            ></input>
+            <button
+              className="search-btn"
+              onClick={() => {
+                //write filter function
+                const data = filterData(searchText, listOfRes);
+                setListOfRes(data);
+              }}
+            >
+              {" "}
+              Search
+            </button>
+          </div>
+          <div className="filter">
+            <button
+              className="filter-btn"
+              onClick={() => {
+                // this is a cb fun will be called on click
+                //Filter
+                const filteredList = listOfRes.filter(
+                  (res) => Number(res.data?.avgRating) > 4
+                );
+                console.log("filteredList", filteredList);
+                setListOfRes(filteredList);
+              }}
+            >
+              Top Rated Restaurant
+            </button>
+          </div>
         </div>
-        <div className="filter">
-          <button
-            className="filter-btn"
-            onClick={() => {
-              // this is a cb fun will be called on click
-              //Filter
-              const filteredList = listOfRes.filter((res) => Number(res.data?.avgRating) > 4);
-              console.log('filteredList',filteredList)
-              setListOfRes(filteredList);
-            }}
-          >
-            Top Rated Restaurant
-          </button>
+        <div className="res-container">
+          {/* res-card */}
+          {listOfRes.map((res) => {
+            return <ResCard key={res.id} resObject={res?.data} />;
+          })}
         </div>
       </div>
-      <div className="res-container">
-        {/* res-card */}
-        {listOfRes.map((res) => {
-          return <ResCard key={res.id} resObject={res?.data} />;
-        })}
-      </div>
-    </div>
+    </>
+  ) : (
+    <Shimmer />
   );
 };
 
