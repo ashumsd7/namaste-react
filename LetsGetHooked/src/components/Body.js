@@ -2,7 +2,7 @@
 import { useState } from "react";
 import ResCard from "./ResCard";
 const Body = () => {
-  let listOfRes = [
+  let listOfRes2 = [
     {
       name: "Dominos",
       id:123443,
@@ -32,8 +32,8 @@ const Body = () => {
       },
   ];
 
-  const [data, reset]= useState('hi')
-//   console.log(data, reset)
+
+const [listOfRes, setListOfRes] = useState(listOfRes2);
 
   return (
     <div className="body">
@@ -43,8 +43,9 @@ const Body = () => {
           onClick={() => {
             // this is a cb fun will be called on click
             //Filter
-            listOfRes = listOfRes.filter((res) => res.avgRating > 4);
-            console.log('listOfRes',listOfRes)
+            const  filteredList = listOfRes.filter((res) => res.avgRating > 4);
+            // console.log('listOfRes',listOfRes)
+            setListOfRes(filteredList);
           }}
         >
           Top Rated Restaurant
