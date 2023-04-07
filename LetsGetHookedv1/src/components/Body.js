@@ -34,27 +34,41 @@ const Body = () => {
 
   const [listOfRes, setListOfRes] = useState(listOfRes2);
   // let search = "KFC";
-  const [searchText, setSearchText] = useState('KFC');
+  const [searchText, setSearchText] = useState("KFC");
 
-  const onChangeInput= (e)=>{
+  const onChangeInput = (e) => {
     console.log(e.target.value);
     setSearchText(e.target.value);
+  };
 
-  }
+  const filterData = (searchText, listOfRes) => {
+    console.log('>>>>>>>',listOfRes.filter((rest) => rest.name.includes(searchText)))
+    return listOfRes.filter((rest) => rest.name.includes(searchText));
+  };
   return (
     <div className="body">
-      <div style={{display:'flex', gap:10 , margin:8}}>
+      <div style={{ display: "flex", gap: 10, margin: 8 }}>
         <div className="search-container">
           <input
             type="text"
             className="search-input"
             placeholder="search"
             value={searchText}
-            onChange={(e)=>{
-              onChangeInput(e)
+            onChange={(e) => {
+              onChangeInput(e);
             }}
           ></input>
-          <button className="search-btn"> Search</button>
+          <button
+            className="search-btn"
+            onClick={() => {
+              //write filter function
+              const data = filterData(searchText, listOfRes);
+              setListOfRes(data);
+            }}
+          >
+            {" "}
+            Search
+          </button>
         </div>
         <div className="filter">
           <button
