@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   console.log("Re render");
 
- const [allRes, setAllRes] = useState([]);
+  const [allRes, setAllRes] = useState([]);
   const [listOfRes, setListOfRes] = useState([]);
   const [filteredRes, setFilteredRes] = useState([]);
   // let search = "KFC";
@@ -23,8 +23,8 @@ const Body = () => {
     const json = await data.json();
     console.log(json.data?.cards[2]?.data.data.cards);
     setListOfRes(json.data?.cards[2]?.data.data.cards);
-    setAllRes(json.data?.cards[2]?.data.data.cards)
-    setFilteredRes(json.data?.cards[2]?.data.data.cards)
+    setAllRes(json.data?.cards[2]?.data.data.cards);
+    setFilteredRes(json.data?.cards[2]?.data.data.cards);
   }
 
   const onChangeInput = (e) => {
@@ -37,6 +37,10 @@ const Body = () => {
     // console.log('>>>>>>>',listOfRes.filter((rest) => rest.name.includes(searchText)))
     return listOfRes.filter((rest) => rest.data.name.includes(searchText));
   };
+
+  if (!allRes) return;
+  if (filteredRes.length == 0) return <>No Restaurant are found</>;
+
   return filterData.length > 0 ? (
     <>
       <div className="body">

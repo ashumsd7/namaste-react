@@ -1,5 +1,7 @@
 import { LOGO_URL } from "../utils/constant";
 const Header = () => {
+
+
     return (
       <div className="header">
         <div className="logo-container">
@@ -14,6 +16,7 @@ const Header = () => {
             <li></li>
           </ul>
         </div>
+        
       </div>
     );
   };
