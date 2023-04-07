@@ -33,21 +33,23 @@ const Body = () => {
   ];
 
   const [listOfRes, setListOfRes] = useState(listOfRes2);
-  let search = "KFC";
+  // let search = "KFC";
+  const [searchText, setSearchText] = useState('KFC');
 
   const onChangeInput= (e)=>{
     console.log(e.target.value);
+    setSearchText(e.target.value);
 
   }
   return (
     <div className="body">
-      <div>
+      <div style={{display:'flex', gap:10 , margin:8}}>
         <div className="search-container">
           <input
             type="text"
             className="search-input"
             placeholder="search"
-            value={search}
+            value={searchText}
             onChange={(e)=>{
               onChangeInput(e)
             }}

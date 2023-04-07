@@ -27,7 +27,7 @@
   cursor: pointer;
 }
 .search {
-  padding: 10px;
+  /* padding: 10px; */
 }
 .res-container{
   display: flex;
