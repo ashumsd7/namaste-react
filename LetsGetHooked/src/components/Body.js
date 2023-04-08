@@ -37,6 +37,7 @@ const [listOfRes, setListOfRes] = useState(listOfRes2);
 
   return (
     <div className="body">
+      <Shimmer/>
       <div className="filter">
         <button
           className="filter-btn"
