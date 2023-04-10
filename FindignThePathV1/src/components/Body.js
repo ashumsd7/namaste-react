@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 const Body = () => {
   console.log("Re render");
 
@@ -18,17 +19,17 @@ const Body = () => {
   }, []);
 
   async function getRes() {
-    setIsLoading(true)
+    setIsLoading(true);
     const data = await fetch(
       " https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
-  
+
     const json = await data.json();
     console.log(json.data?.cards[2]?.data.data.cards);
     setListOfRes(json.data?.cards[2]?.data.data.cards);
     setAllRes(json.data?.cards[2]?.data.data.cards);
     setFilteredRes(json.data?.cards[2]?.data.data.cards);
-    setIsLoading(false)
+    setIsLoading(false);
   }
 
   const onChangeInput = (e) => {
@@ -43,12 +44,12 @@ const Body = () => {
   };
 
   if (!allRes && !isLoading) return;
-  if (filteredRes.length == 0 & !isLoading) return <>No Restaurant are found</>;
+  if ((filteredRes.length == 0) & !isLoading)
+    return <>No Restaurant are found</>;
 
-  return filterData.length > 0 && !isLoading  ? (
+  return filterData.length > 0 && !isLoading ? (
     <>
       <div className="body">
-   
         <div style={{ display: "flex", gap: 10, margin: 8 }}>
           <div className="search-container">
             <input
@@ -92,7 +93,11 @@ const Body = () => {
         <div className="res-container">
           {/* res-card */}
           {filteredRes.map((res) => {
-            return <ResCard key={res.id} resObject={res?.data} />;
+            return (
+              <Link to={`/restaurant/${res.data.id}`}>
+                <ResCard key={res.id} resObject={res?.data} />;
+              </Link>
+            );
           })}
         </div>
       </div>
