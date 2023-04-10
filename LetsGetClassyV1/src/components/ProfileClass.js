@@ -8,10 +8,16 @@ class Profile extends React.Component {
       count: 12,
       count2: 23,
     };
+    console.log('in constructor');
+  }
+
+
+  componentDidMount(){
+    console.log('in componentDidMount');
   }
 
   render() {
-    console.log("THIS IS", this);
+    console.log("in render");
     return (
       <div>
         <h3>Class based Profile component</h3>
@@ -20,7 +26,7 @@ class Profile extends React.Component {
         <h5>Count2: {this.state.count2}</h5>
         <button
           onClick={() => {
-            this.setState({...this.state, count2:666});
+            this.setState({  count2: 666 });
           }}
         >
           Change Count
