@@ -5,14 +5,14 @@ const Profile = () => {
 
   useEffect(() => {
     console.log("F:In useEffect");
-    const timer = setInterval(() => {
-      console.log("TIMER in functional component");
-    }, 1000);
+    // const timer = setInterval(() => {
+    //   console.log("TIMER in functional component");
+    // }, 1000);
 
     return () => {
       //clean up
       console.log("F: Return clean up");
-      clearInterval(timer);
+      // clearInterval(timer);
     };
   }, []);
 
