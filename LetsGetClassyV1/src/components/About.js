@@ -36,7 +36,8 @@ class About extends React.Component {
     return (
       <div>
         About class component
-        <Profile name={"Deva"} />
+      
+        <ProfileF/>
       
       </div>
     );
