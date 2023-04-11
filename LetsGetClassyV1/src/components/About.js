@@ -15,15 +15,29 @@ import ProfileF from "./Profile";
 
 class About extends React.Component {
   constructor(props) {
+    console.log('parent constructor')
     super(props);
+
+  }
+
+  componentDidMount(){
+    console.log('parent componentDidMount')
+  }
+  componentDidUpdate(){
+    console.log('Parent ComponentDidUpdate');
+  }
+
+  componentWillUnmount(){
+    console.log('Parent ComponentWillUnmount');
   }
 
   render() {
+    console.log('parent render')
     return (
       <div>
         About class component
         <Profile name={"Deva"} />
-        <ProfileF />
+      
       </div>
     );
   }
