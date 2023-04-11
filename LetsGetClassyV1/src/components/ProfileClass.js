@@ -18,6 +18,10 @@ class Profile extends React.Component {
 
   async componentDidMount() {
 
+  this.timer= setInterval(() => {
+      console.log('NAMASTE')
+    }, 2000);
+
     const data = await fetch("https://api.github.com/users/ashumsd7");
     const json = await data.json();
     this.setState({userInfo:json});
@@ -25,12 +29,16 @@ class Profile extends React.Component {
     console.log('Child didMount');
   }
 
-  componentDidUpdate(){
+  componentDidUpdate(prevProps,prevState){
+    if(this.state.count!==prevState.count){  // its like your dependency array
+      //do something after update
+    }
     console.log('Child ComponentDidUpdate');
   }
 
   componentWillUnmount(){
     console.log('Child ComponentWillUnmount');
+    clearInterval(this.timer)
   }
 
   render() {
