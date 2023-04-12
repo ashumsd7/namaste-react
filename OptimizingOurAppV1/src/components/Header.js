@@ -21,6 +21,8 @@ const Header = () => {
           </Link>
           <Link to="/contact">
           <li>Contact us</li></Link>
+          <Link to="/instamart">
+          <li>Instamart</li></Link>
           <li>Cart</li>
           <li>{isOnline ?'💚' :'🍎'}</li>
         </ul>
