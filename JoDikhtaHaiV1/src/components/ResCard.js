@@ -9,7 +9,7 @@ const ResCard = (props) => {
     props.resObject;
 
   return (
-    <div className="w-56 p-2 m-2 shadow-md overflow-x-clip bg-pink-50" >
+    <div className="w-56 min-h-[400px] p-2 m-2 shadow-md overflow-x-clip bg-pink-50 rounded-md" >
       <img
         className="res-logo"
         src={`${CDN_URL}${props.resObject.cloudinaryImageId}`}

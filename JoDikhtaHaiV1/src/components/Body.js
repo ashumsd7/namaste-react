@@ -55,14 +55,14 @@ const Body = () => {
 
   return filterData.length > 0 && !isLoading ? (
     <>
-      <div className="body">
+      <div className=" bg-cyan-200">
        
         <div>
-          <div className="search-container p-5 bg-pink-50 my-5 flex justify-between">
+          <div className="search-container p-5 bg-cyan-100  flex justify-between">
            <div>
            <input
               type="text"
-              className="search-input p-2 m-2 rounded-lg"
+              className="search-input p-2 w-[150px] m-2 rounded-lg focus:bg-green-50"
               placeholder="search"
               value={searchText}
               onChange={(e) => {
@@ -71,7 +71,7 @@ const Body = () => {
             ></input>
             <button
          
-              className=" p-2 m-2 bg-purple-900 text-white rounded-lg"
+              className=" p-2 m-2 w-[100px] bg-purple-900 text-white rounded-lg"
               onClick={() => {
                 //write filter function
                 const data = filterData(searchText, allRes);
@@ -84,7 +84,7 @@ const Body = () => {
            </div>
             <div className="filter flex justify-center items-center">
             <button
-              className="filter-btn p-2 m-2 bg-purple-900 text-white rounded-lg"
+              className="filter-btn p-2 m-2 bg-cyan-500 text-white rounded-lg"
               onClick={() => {
                 // this is a cb fun will be called on click
                 //Filter
