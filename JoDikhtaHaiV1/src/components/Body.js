@@ -39,6 +39,10 @@ const Body = () => {
     setSearchText(e.target.value);
   };
 
+  const style={
+    backgroundColor: 'red'
+  }
+
   const filterData = (searchText, listOfRes) => {
     console.log(searchText, listOfRes);
     // console.log('>>>>>>>',listOfRes.filter((rest) => rest.name.includes(searchText)))
@@ -64,6 +68,7 @@ const Body = () => {
               }}
             ></input>
             <button
+            style={{color: "green"}}
               className="search-btn"
               onClick={() => {
                 //write filter function
