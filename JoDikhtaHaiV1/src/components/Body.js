@@ -56,12 +56,13 @@ const Body = () => {
   return filterData.length > 0 && !isLoading ? (
     <>
       <div className="body">
-        <h1>Hello Sir</h1>
-        <div style={{ display: "flex", gap: 10, margin: 8 }}>
-          <div className="search-container">
-            <input
+       
+        <div>
+          <div className="search-container p-5 bg-pink-50 my-5 flex justify-between">
+           <div>
+           <input
               type="text"
-              className="search-input"
+              className="search-input p-2 m-2 rounded-lg"
               placeholder="search"
               value={searchText}
               onChange={(e) => {
@@ -69,8 +70,8 @@ const Body = () => {
               }}
             ></input>
             <button
-            style={{color: "green"}}
-              className="search-btn"
+         
+              className=" p-2 m-2 bg-purple-900 text-white rounded-lg"
               onClick={() => {
                 //write filter function
                 const data = filterData(searchText, allRes);
@@ -80,10 +81,10 @@ const Body = () => {
               {" "}
               Search
             </button>
-          </div>
-          <div className="filter">
+           </div>
+            <div className="filter flex justify-center items-center">
             <button
-              className="filter-btn"
+              className="filter-btn p-2 m-2 bg-purple-900 text-white rounded-lg"
               onClick={() => {
                 // this is a cb fun will be called on click
                 //Filter
@@ -97,8 +98,10 @@ const Body = () => {
               Top Rated Restaurant
             </button>
           </div>
+          </div>
+          
         </div>
-        <div className="res-container">
+        <div className=" flex flex-wrap justify-around rounded-sm">
           {/* res-card */}
           {filteredRes.map((res) => {
             return (

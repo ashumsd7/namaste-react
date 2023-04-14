@@ -8,27 +8,27 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline= useOnline()
   return (
-    <div className="header">
+    <div className=" flex justify-between bg-pink-50">
       <div className="logo-container">
-        <img className="logo" src={LOGO}></img>
+        <img className="logo h-28 p-2" src={LOGO}></img>
       </div>
-      <div className="nav-items">
-        <ul>
-        <Link to='/'>  <li>Home</li> </Link>
+      <div className="nav-items flex  items-center">
+        <ul className="flex py-10 px-2">
+        <Link to='/' >  <li className="px-2 font-bold">Home</li> </Link>
           <Link to="/about">
             {" "}
-            <li>About us</li>
+            <li className="px-2 font-bold">About us</li>
           </Link>
           <Link to="/contact">
-          <li>Contact us</li></Link>
+          <li className="px-2 font-bold">Contact us</li></Link>
           <Link to="/instamart">
-          <li>Instamart</li></Link>
-          <li>Cart</li>
-          <li>{isOnline ?'💚' :'🍎'}</li>
+          <li className="px-2 font-bold">Instamart</li></Link>
+          <li className="px-2 font-bold">Cart</li>
+          <li className="px-2 font-bold">{isOnline ?'💚' :'🍎'}</li>
         </ul>
-      </div>
-      {!isLoggedIn ? (
+        {!isLoggedIn ? (
         <button
+        className="font-bold bg-green-300 text-white h-12 rounded-md px-2 py-1"
           onClick={() => {
             setIsLoggedIn(true);
           }}
@@ -37,6 +37,7 @@ const Header = () => {
         </button>
       ) : (
         <button
+        className="font-bold bg-red-300 text-black rounded-sm px-2 py-1"
           onClick={() => {
             setIsLoggedIn(false);
           }}
@@ -44,6 +45,8 @@ const Header = () => {
           Logout
         </button>
       )}
+      </div>
+     
     </div>
   );
 };
