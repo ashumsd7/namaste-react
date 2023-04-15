@@ -1,5 +1,5 @@
 //create nested elements
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -14,6 +14,10 @@ import Shimmer from "./components/Shimmer";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 const AppLayout = () => {
+  const [user, setUser] = useState({
+    name: "Ashutosh",
+    email: "aa@aa.aaa",
+  });
   return (
     <div className="app">
       <Header />
