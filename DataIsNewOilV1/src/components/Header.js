@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 // import { LOGO_URL } from "../utils/constant";
 import LOGO from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 
+import UserContext from "../utils/UserContext";
+
+
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline= useOnline()
+
+
+  const {user} = useContext(UserContext)
+  console.log('user is',user)
   return (
-    <div className=" flex justify-between bg-pink-50 px-2">
+    <div className=" flex justify-between md:flex-row flex-col bg-pink-50 px-2">
       <div className="logo-container flex items-center">
         <img className="logo h-14 p-2" src={LOGO}></img>
       </div>
@@ -24,7 +31,7 @@ const Header = () => {
           <Link to="/instamart">
           <li className="px-2 font-bold">Instamart</li></Link>
           <li className="px-2 font-bold">Cart</li>
-          <li className="px-2 font-bold">{isOnline ?'💚' :'🍎'}</li>
+          <li className="px-2 font-bold">{isOnline ?'🟢 ONLINE' :'🔴 OFFLINE'}</li>
         </ul>
         {!isLoggedIn ? (
         <button
@@ -33,7 +40,7 @@ const Header = () => {
             setIsLoggedIn(true);
           }}
         >
-          Login
+          Login 
         </button>
       ) : (
         <button
@@ -42,7 +49,7 @@ const Header = () => {
             setIsLoggedIn(false);
           }}
         >
-          Logout
+          Logout {user.name}
         </button>
       )}
       </div>
