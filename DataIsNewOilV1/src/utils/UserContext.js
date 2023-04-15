@@ -7,4 +7,6 @@ const UserContext = createContext({
   },
 });
 
+
+UserContext.displayName='USER KA CONTEXT'
 export default UserContext;
