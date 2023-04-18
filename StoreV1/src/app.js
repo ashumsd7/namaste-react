@@ -12,6 +12,7 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 // import Instamart from "./components/Instamart";
+import { Provider } from "react-redux";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 const AppLayout = () => {
@@ -20,12 +21,14 @@ const AppLayout = () => {
     email: "aa@aa.aaa",
   });
   return (
-    <UserContext.Provider value={{user:user,setUser:setUser}} >
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider>
+      <UserContext.Provider value={{ user: user, setUser: setUser }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
