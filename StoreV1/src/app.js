@@ -13,6 +13,7 @@ import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 // import Instamart from "./components/Instamart";
 import { Provider } from "react-redux";
+import store from "./utils/store";
 
 const Instamart = lazy(() => import("./components/Instamart"));
 const AppLayout = () => {
@@ -21,7 +22,7 @@ const AppLayout = () => {
     email: "aa@aa.aaa",
   });
   return (
-    <Provider>
+    <Provider store={store}>
       <UserContext.Provider value={{ user: user, setUser: setUser }}>
         <div className="app">
           <Header />
