@@ -5,11 +5,15 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isOnline= useOnline()
+
+  const cartItems= useSelector(store=>store.cart?.items)
+ 
 
 
   const {user} = useContext(UserContext)
@@ -30,7 +34,7 @@ const Header = () => {
           <li className="px-2 font-bold">Contact us</li></Link>
           <Link to="/instamart">
           <li className="px-2 font-bold">Instamart</li></Link>
-          <li className="px-2 font-bold">Cart</li>
+          <li className="px-2 font-bold">Cart({cartItems?.length})</li>
           <li className="px-2 font-bold">{isOnline ?'🟢 ONLINE' :'🔴 OFFLINE'}</li>
         </ul>
         {!isLoggedIn ? (
