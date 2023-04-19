@@ -1,7 +1,10 @@
 /node_modules
+coverage
 dist
 .parcel-cache
 /dist
 /.parcel-cache
 parcel-cache/
 dist/
+/coverage
+./coverage
