@@ -2,11 +2,11 @@ import React from "react";
 
 function Shimmer() {
   return (
-    <div className="restaurant-list">
+    <div className="restaurant-list" data-testid='shimmer-ui'>
       {Array(10)
         .fill("")
-        .map((e) => (
-          <div key={e} className="shimmer-card"></div>
+        .map((e, idx) => (
+          <div key={idx} className="shimmer-card bg-gray-400"></div>
         ))}
     </div>
   );

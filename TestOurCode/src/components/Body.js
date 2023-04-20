@@ -15,7 +15,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("KFC");
   const [isLoading, setIsLoading] = useState(false);
 
-  const { user,setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   useEffect(() => {
     // console.log('I am use Effect')
     getRes();
@@ -67,6 +67,7 @@ const Body = () => {
                 }}
               ></input>
               <button
+                data-testid="search-btn"
                 className=" p-2 m-2 w-[100px] bg-purple-900 text-white rounded-lg"
                 onClick={() => {
                   //write filter function
@@ -85,9 +86,9 @@ const Body = () => {
                 value={user.name}
                 onChange={(e) => {
                   setUser({
-                    name:e.target.value,
-                    email:'new@example.com'
-                  })
+                    name: e.target.value,
+                    email: "new@example.com",
+                  });
                 }}
               ></input>
             </div>
@@ -109,11 +110,11 @@ const Body = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-wrap justify-around rounded-sm">
+        <div className=" flex flex-wrap justify-around rounded-sm" data-testid='res-list'>
           {/* res-card */}
-          {filteredRes.map((res) => {
+          {filteredRes.map((res, idx) => {
             return (
-              <Link to={`/restaurant/${res.data.id}`}>
+              <Link to={`/restaurant/${res.data.id}`} key={idx}>
                 <ResCard key={res.id} resObject={res?.data} />;
               </Link>
             );
@@ -122,7 +123,11 @@ const Body = () => {
       </div>
     </>
   ) : (
-    <Shimmer />
+    <div>
+      {" "}
+      <h1>ASHUUUUUUUUUU</h1>
+      <Shimmer />
+    </div>
   );
 };
 

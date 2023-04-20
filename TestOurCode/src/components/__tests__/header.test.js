@@ -47,3 +47,25 @@ test("ONLINE SHUD BE GREEN", () => {
     //check logo is present or not
   });
   
+
+  // cart has 0 items
+test("CART SHOULD HAVE 0 ITEMS", () => {
+    //load header
+  
+    const header = render(
+      <StaticRouter>
+        <Provider store={store}>
+          <Header />
+        </Provider>
+      </StaticRouter>
+    );
+  
+
+  //   console.log(header);
+  
+    const cart = header.getByTestId('cart')
+    expect(cart.innerHTML).toBe('Cart(0)')
+  
+  
+    //check logo is present or not
+  });

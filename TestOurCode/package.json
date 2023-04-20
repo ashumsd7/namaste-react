@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "watch-test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
   "dependencies": {
     "@babel/preset-react": "^7.18.6",
     "@reduxjs/toolkit": "^1.9.5",
+    "@testing-library/jest-dom": "^5.16.5",
     "axios": "^1.3.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

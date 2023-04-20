@@ -37,7 +37,7 @@ const Header = () => {
             <li className="px-2 font-bold">Instamart</li>
           </Link>
           <Link to="/cart">
-            <li className="px-2 font-bold">Cart({cartItems?.length})</li>{" "}
+            <li className="px-2 font-bold" data-testid='cart'>Cart({cartItems?.length})</li>{" "}
           </Link>
           <li className="px-2 font-bold" data-testid='online-status'>
             {isOnline ? "🟢 ONLINE" : "🔴 OFFLINE"}
