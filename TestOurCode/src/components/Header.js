@@ -39,7 +39,7 @@ const Header = () => {
           <Link to="/cart">
             <li className="px-2 font-bold">Cart({cartItems?.length})</li>{" "}
           </Link>
-          <li className="px-2 font-bold">
+          <li className="px-2 font-bold" data-testid='online-status'>
             {isOnline ? "🟢 ONLINE" : "🔴 OFFLINE"}
           </li>
         </ul>
