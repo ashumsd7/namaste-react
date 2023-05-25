@@ -1,9 +1,38 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
-  return (
-    <div>Sidebar</div>
-  )
-}
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
-export default Sidebar
+  if (!isMenuOpen) return;
+  return (
+    <div className="py-2  px-4 shadow-lg w-48 ">
+      <ul className=" pt-4 flex flex-col gap-2">
+        <li>Home</li>
+        <li>Shorts</li>
+        <li>Videos</li>
+        <li>Live</li>
+      </ul>
+      <hr className="my-6" />
+      <h1 className="font-bold ">Subscriptions</h1>
+      <ul className="flex flex-col gap-2">
+        <li>Music</li>
+        <li>Sports</li>
+        <li>Gaming</li>
+        <li>Movies</li>
+      </ul>
+
+      <hr className="my-6" />
+
+      <h1 className="font-bold ">Watch Later</h1>
+      <ul className="flex flex-col gap-2">
+        <li>Music</li>
+        <li>Sports</li>
+        <li>Gaming</li>
+        <li>Movies</li>
+      </ul>
+    </div>
+  );
+};
+
+export default Sidebar;
