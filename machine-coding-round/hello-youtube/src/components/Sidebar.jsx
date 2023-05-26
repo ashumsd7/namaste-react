@@ -6,7 +6,7 @@ const Sidebar = () => {
 
   if (!isMenuOpen) return;
   return (
-    <div className="py-2  px-4 shadow-lg w-48 ">
+    <div className="py-2  px-4 shadow-lg w-48 my-6">
       <ul className=" pt-4 flex flex-col gap-2">
         <li>Home</li>
         <li>Shorts</li>
