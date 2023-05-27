@@ -27,4 +27,12 @@ const VideoCard = ({ info }) => {
   );
 };
 
+export const AdVideoCard = ({ info }) => {
+  return (
+    <div className="hover:bg-red-500 hover:opacity-50 hover:scale-95 border overflow-hidden duration-200">
+      <VideoCard info={info} />
+    </div>
+  );
+};
+
 export default VideoCard;
