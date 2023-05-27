@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ButtonList from "./ButtonList";
 import VideoContainer from "./VideoContainer";
+import YOUTUBE_URL from "../utils/constant";
 
 const MainContainer = () => {
+
   return (
-    <div className="mx-6 mt-4">
+    <div className="px-6 pt-4">
       <ButtonList />
-      <VideoContainer/>
+      <VideoContainer />
     </div>
   );
 };
