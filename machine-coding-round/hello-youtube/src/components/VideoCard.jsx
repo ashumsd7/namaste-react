@@ -21,7 +21,9 @@ const VideoCard = ({ info }) => {
         </li>
 
         <li className="ml-10 text-sm">{channelTitle}</li>
-        <li className="text-xs ml-10 font-mono">{viewCount} Views</li>
+        <li className="text-xs ml-10 ">
+          {Math.abs(viewCount / 1000)}k Views
+        </li>
       </ul>
     </div>
   );

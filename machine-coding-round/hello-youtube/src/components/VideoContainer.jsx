@@ -17,7 +17,7 @@ const VideoContainer = () => {
   };
   return (
     <div className="my-6 flex gap-4 flex-wrap">
-      {videoList.length && <AdVideoCard info={videoList[0]} />}
+      {videoList.length>0 && <AdVideoCard info={videoList[0]} />}
       {videoList?.map((item, idx) => (
         <Link to={`/watch?v=${item.id}`}>
           {" "}

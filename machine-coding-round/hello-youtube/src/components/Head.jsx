@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { YOUTUBE_SEARCH_API } from "../utils/constant";
 
 const Head = () => {
   const dispatch = useDispatch();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    console.log("calling apis", searchQuery);
+
+    // make an api call after each key stroke
+    //if the deiif b/w two call is less than 200ms pass/ decline the api call
+
+    const timer = setTimeout(() => {
+      getSearch();
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchQuery]);
+
+  const getSearch = async () => {
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const res = await data.json();
+    const arrayData = res?.items.map((item) => item?.snippet?.title);
+    console.log(arrayData)
+  };
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
@@ -13,6 +36,7 @@ const Head = () => {
 
   return (
     <div className="grid grid-flow-col w-[100vw] py-2 px-5 items-center  shadow-lg gap-10">
+      {searchQuery}
       <div className="flex col-span-1 items-center">
         <img
           className="h-8 cursor-pointer"
@@ -33,6 +57,8 @@ const Head = () => {
 
       <div className="col-span-10 m-auto w-full flex lg:mx-[30%]  border-gray-400">
         <input
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           className="lg:w-[450px] md:w-[200px] rounded-l-full p-2 border border-gray-400"
           type="text"
         ></input>
