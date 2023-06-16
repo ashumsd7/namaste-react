@@ -44,7 +44,7 @@ function LiveChat() {
 
       <div className="flex  gap-4 flex-col-reverse p-2 border bg-slate-100  overflow-y-auto rounded-lg w-full h-[500px]">
         {chats?.map((item, index) => (
-          <ChatMsg name={item.name} msg={`${index + 1}${item?.msg}`} />
+          <ChatMsg name={item.name} msg={`${item?.msg}`} />
         ))}
       </div>
 
@@ -67,20 +67,13 @@ function LiveChat() {
             onChange={(e) => {
               setLiveMsg(e.target.value);
             }}
+            autoFocus
             placeholder="Chat here.."
             className="p-2 border rounded-lg w-full"
           ></input>
           <button
             disabled={!liveMsg}
-            //   onClick={() => {
-            //     dispatch(
-            //       addMsg({
-            //         name: "Ashu",
-            //         msg: liveMsg,
-            //       })
-            //     );
-            //     setLiveMsg("");
-            //   }}
+       
             type="submit"
             className="border rounded-lg bg-gray-300 px-2 py-1"
           >
