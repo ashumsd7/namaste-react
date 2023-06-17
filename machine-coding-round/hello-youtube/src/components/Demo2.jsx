@@ -9,12 +9,13 @@ function Demo2() {
   let z = useRef(10000);
 
   console.log("Ref z", z);
-
+  let interval = useRef(null);
   useEffect(() => {
-    const interval = setInterval(() => {
+    if (interval.current) return;
+    interval.current = setInterval(() => {
       console.log("NAMASTE", Math.floor(Math.random() * 1000));
     }, 1000);
-    return () => clearInterval(interval);
+    return () => clearInterval(interval.current);
   }, []);
   return (
     <div
@@ -64,6 +65,16 @@ function Demo2() {
           Increment Y
         </button>
       </div>
+
+      <button
+        className="px-2 py-1 bg-red-900 border rounded-lg  text-white font-mono font-bold"
+        onClick={() => {
+          console.log(">>>", interval.current);
+          clearInterval(interval.current);
+        }}
+      >
+        STOP PRINTING
+      </button>
     </div>
   );
 }
