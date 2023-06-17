@@ -8,6 +8,7 @@ import VideoContainer from "./components/VideoContainer";
 import WatchPage from "./components/WatchPage";
 import MainContainer from "./components/MainContainer";
 import Demo from "./components/Demo";
+import Demo2 from "./components/Demo2";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/demo",
-        element: <Demo />,
+        element: (
+          <>
+            <Demo />
+            <Demo2 />
+          </>
+        ),
       },
     ],
   },
